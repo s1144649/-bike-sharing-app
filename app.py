@@ -128,13 +128,14 @@ if st.button('Voorspel aantal verhuren 🚲'):
     prediction = model.predict(input_data)
     pred_value = int(prediction[0])
 
-    # Save ONLY when button is pressed
     save_prediction(
         hr, yr, season, weekday, holiday,
         workingday, weathersit,
         temp_c, hum_pct, wind_kmh,
         pred_value
     )
+
+    load_predictions.clear()
 
     st.success(f'Voorspeld aantal fietsverhuren: **{pred_value}**')
 
